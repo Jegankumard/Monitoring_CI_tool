@@ -1,6 +1,8 @@
 # Monitoring_CI_tool
 To Monitor Jenkins, Gitlab application using Prometheus, Node exporter and Grafana
 
+![alt text](https://raw.githubusercontent.com/Jegankumard/Monitoring_CI_tool/main/Jenkins_Prometheus_Grafana.avif)
+
 ## Install Prometheus on Ubuntu
 create a system user or system account
 ```
