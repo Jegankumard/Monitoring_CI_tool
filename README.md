@@ -62,11 +62,14 @@ sudo systemctl enable prometheus
 sudo systemctl start prometheus
 sudo systemctl status Prometheus
 ```
+![alt text](https://raw.githubusercontent.com/Jegankumard/Monitoring_CI_tool/main/prometheus_status_cli.JPG)
 Debug error
 ```
 journalctl -u prometheus -f --no-pager
 <public-ip-address:9090>
 ```
+![alt text](https://raw.githubusercontent.com/Jegankumard/Monitoring_CI_tool/main/Prometheus_login.JPG)
+
 ## Install Node Exporter on Ubuntu
 create a system user or system account
 ```
@@ -116,6 +119,7 @@ sudo systemctl enable node_exporter
 sudo systemctl start node_exporter
 sudo systemctl status node_exporter
 ```
+![alt text](https://raw.githubusercontent.com/Jegankumard/Monitoring_CI_tool/main/node_exporter_status_cli.JPG)
 Debug error
 ```
 journalctl -u node_exporter -f --no-pager
@@ -139,8 +143,8 @@ we can reload the Prometheus config without restarting the service
 promtool check config /etc/prometheus/prometheus.yml
 curl -X POST http://localhost:9090/-/reload
 http://<ip>:9090/targets
-
 ```
+![alt text](https://raw.githubusercontent.com/Jegankumard/Monitoring_CI_tool/main/Node_Export_page.JPG)
 
 ## Install Grafana on Ubuntu
 Dependency install, GPG key, Stable release
@@ -162,10 +166,12 @@ sudo systemctl enable grafana-server
 sudo systemctl start grafana-server
 sudo systemctl status grafana-server
 ```
+![alt text](https://raw.githubusercontent.com/Jegankumard/Monitoring_CI_tool/main/Grafana_status_cli.JPG)
 Login - default (username is admin, and the password is admin)
 ```
 http://<ip>:3000
 ```
+![alt text](https://raw.githubusercontent.com/Jegankumard/Monitoring_CI_tool/main/Grafana_login.JPG)
 To visualize metrics, add a data source > prometheus > URL > save, test
 URL- http://localhost:9090 or <public-ip:9090>
 
@@ -202,6 +208,7 @@ sudo apt install jenkins -y
 sudo systemctl start jenkins && sudo systemctl enable jenkins
 sudo systemctl status jenkins
 ```
+![alt text](https://raw.githubusercontent.com/Jegankumard/Monitoring_CI_tool/main/Jenkins_status_cli.JPG)
 
 To access Jenkins installation via domain, we need to configure the Apache as a Reverse Proxy
 ```
@@ -237,6 +244,8 @@ Admin password
 ```
 cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
+![alt text](https://raw.githubusercontent.com/Jegankumard/Monitoring_CI_tool/main/Jenkins_LoginPage.JPG)
+
 ## Monitor Jenkins
 
 #### Plugins:
@@ -251,7 +260,7 @@ sudo vim /etc/prometheus/prometheus.yml
   - job_name: 'jenkins'
     metrics_path: '/prometheus'
     static_configs:
-      - targets: ['<jenkins-ip>:8080']
+      - targets: ['<jenkins-ip-without-http>:8080']
 
 <<<
 ```
@@ -265,3 +274,5 @@ http://<ip-address>:9090/targets
 
 #### Grafana Dashboard
 Click On Dashboard --> + symbol --> Import Dashboard --> Use Id 9964 and click on load > Select the data source and click on Import >overview of Jenkins
+
+![alt text](https://raw.githubusercontent.com/Jegankumard/Monitoring_CI_tool/main/Jenkins_dashboard_in_grafana.JPG)
