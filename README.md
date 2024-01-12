@@ -172,12 +172,12 @@ URL- http://localhost:9090 or <public-ip:9090>
 Add Dashboard > Click on Import Dashboard paste this code 1860 and click on load > Select the Datasource and click on Import > output
 
 ## Launch Jenkins in Ubuntu
-Step 1. Update the System
-Step 2. Install Apache Web Server
-Step 3. Install Java
-Step 4. Install Jenkins
-Step 5. Setting up Apache as a Reverse Proxy
-Step 7. Finish Installation
+- Step 1. Update the System
+- Step 2. Install Apache Web Server
+- Step 3. Install Java
+- Step 4. Install Jenkins
+- Step 5. Setting up Apache as a Reverse Proxy
+- Step 7. Finish Installation
 
 ```
 sudo apt-get update -y && sudo apt-get upgrade -y
